@@ -35,6 +35,7 @@
 import Mapbox from "mapbox-gl";
 import { MglMap, MglMarker } from "vue-mapbox";
 
+//new save
 export default {
   components: {
     MglMap,
