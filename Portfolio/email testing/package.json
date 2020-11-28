@@ -1,0 +1,15 @@
+{
+  "name": "email-testing",
+  "version": "1.0.0",
+  "description": "email testing",
+  "main": "email.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sendgrid/mail": "^7.2.6",
+    "dotenv": "^8.2.0"
+  }
+}
