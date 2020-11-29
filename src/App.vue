@@ -1,16 +1,19 @@
 <template>
   <div id="app">
+    <h1>Montana COVID-19 Tracking</h1>
+    <Dashboard />
     <Covid />
   </div>
 </template>
 
 <script>
 import Covid from "./components/Covid.vue";
-
+import Dashboard from "./components/Dashboard.vue";
 export default {
   name: "App",
   components: {
-    Covid
+    Covid,
+    Dashboard
   }
 };
 </script>
