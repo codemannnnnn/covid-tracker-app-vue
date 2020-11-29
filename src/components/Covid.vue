@@ -29,7 +29,7 @@
         >
           <MglPopup>
             <div>
-              City: {{ item[1].city }}
+              County: {{ item[1].city }}
               <br />
               Cases: {{ item[1].cases }}
               <br />
@@ -113,8 +113,9 @@ export default {
 
 <style>
 #map {
-  width: 100vw;
+  width: 90vw;
   height: 100vh;
+  margin: 5%;
 }
 </style>
 <!--

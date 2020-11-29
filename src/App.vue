@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <h1>Montana COVID-19 Tracking</h1>
+    <div class="header">
+      <h1 id="heading">Montana COVID-19 Tracking</h1>
+    </div>
     <Dashboard />
     <Covid />
   </div>
@@ -26,5 +28,14 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+#heading {
+  color: white;
+  font-size: 50px;
+}
+.header {
+}
+body {
+  background: #222222;
 }
 </style>
