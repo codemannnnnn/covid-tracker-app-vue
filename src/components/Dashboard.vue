@@ -1,6 +1,7 @@
 <template lang="html">
-  <div class="dashboard-wrapper">
-    <div class="dash-box-wrap-top" v-for="item in data" :key="item.key">
+  <section>
+    <div class="dashboard-wrapper">
+      <!-- <div class="dash-box-wrap-top" v-for="item in data" :key="item.key">
       <div id="dash-item-top">
         {{ item.positive }}
         <br />
@@ -47,22 +48,90 @@
 
         <a id="dash-item-top-content">Deaths</a>
       </div>
-      <!-- <div id="dash-item">
+      <div id="dash-item">
         {{ item.hospitalized }}<br />
 
         <a id="dash-item-top-content">Hospitalized</a>
       </div> -->
-    </div>
+      <!-- </div>
     <div id="dash-item-bottom">
       {{ data[0].lastUpdateEt }}<br />
 
       <a id="dash-item-bottom-content">Last Updated</a>
+    </div> -->
+
+      <div
+        class="side-bar"
+        style="border-top-left-radius: 20px;border-bottom-left-radius: 20px;"
+      >
+        <h1>Current</h1>
+        <div>
+          <div id="dash-item-top">
+            {{ data[0].hospitalized }}<br />
+            <a id="dash-item-top-content">Hospitalized</a>
+          </div>
+          <div id="dash-item-top">
+            {{ data[0].inIcuCurrently }}<br />
+
+            <a id="dash-item-top-content">ICU</a>
+          </div>
+          <div id="dash-item-top">
+            {{ data[0].onVentilatorCurrently }}<br />
+
+            <a id="dash-item-top-content">Ventilator</a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <Covid />
+      </div>
+      <div
+        class="side-bar"
+        style="border-top-right-radius: 20px;border-bottom-right-radius: 20px;"
+      >
+        <h1>Historical</h1>
+        <div>
+          <div id="dash-item-top" style="background: red">
+            {{ data[0].positive }}
+            <br />
+            <a id="dash-item-top-content">Positive</a>
+          </div>
+          <div id="dash-item-top" style="background: green">
+            {{ data[0].negative }} <br /><a id="dash-item-top-content"
+              >Negative</a
+            >
+          </div>
+          <div id="dash-item-top" style="background: blue">
+            {{ data[0].totalTestResults }}<br />
+            <a id="dash-item-top-content">Total Test</a>
+          </div>
+          <div id="dash-item-top">
+            {{ data[0].hospitalizedCumulative }}<br />
+            <a id="dash-item-top-content">Hospitalized</a>
+          </div>
+          <div id="dash-item-top">
+            {{ data[0].recovered }}<br />
+            <a id="dash-item-top-content">Recovered</a>
+          </div>
+          <div id="dash-item-top">
+            {{ data[0].death }}<br />
+            <a id="dash-item-top-content">Deaths</a>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+    <BottomDashboard :data="data" />
+  </section>
 </template>
 
 <script>
+import Covid from "./Covid.vue";
+import BottomDashboard from "./BottomDashboard.vue";
 export default {
+  components: {
+    Covid,
+    BottomDashboard
+  },
   data() {
     return {
       data: []
@@ -86,9 +155,23 @@ export default {
 
 <style lang="css">
 .dashboard-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding: auto;
   width: 100%;
-  padding-bottom: 2%;
 }
+.side-bar {
+  display: flex;
+  flex-direction: column;
+  background: #333;
+  width: 20%;
+  padding: 1%;
+}
+.side-bar h1 {
+  color: white;
+}
+
 .dash-box-wrap-top {
   display: flex;
   justify-content: space-around;

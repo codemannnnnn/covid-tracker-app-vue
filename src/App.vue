@@ -1,21 +1,24 @@
 <template>
   <div id="app">
     <div class="header">
-      <h1 id="heading">Montana COVID-19 Tracking</h1>
+      <h1 id="heading">Montana COVID-19 Data</h1>
     </div>
+
     <Dashboard />
-    <Covid />
+
+    <Footer />
   </div>
 </template>
 
 <script>
-import Covid from "./components/Covid.vue";
 import Dashboard from "./components/Dashboard.vue";
+import Footer from "./components/Footer.vue";
+
 export default {
   name: "App",
   components: {
-    Covid,
-    Dashboard
+    Dashboard,
+    Footer
   }
 };
 </script>
@@ -33,8 +36,7 @@ export default {
   color: white;
   font-size: 50px;
 }
-.header {
-}
+
 body {
   background: #222222;
 }

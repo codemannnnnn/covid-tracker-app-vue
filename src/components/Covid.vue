@@ -64,7 +64,7 @@ export default {
       coordinates: [1, 1],
       marks: [{ coors: [-110.12, 46.09] }, { coors: [33, 1] }],
       centerMt: [-110.12, 46.09],
-      zoom: 6,
+      zoom: 5,
       data: [],
       latLon: [],
       yourMarkersArray: []
@@ -73,7 +73,7 @@ export default {
   methods: {
     getData: function() {
       fetch(
-        "https://api.covid19api.com/country/united-states/status/confirmed/live?from=2020-11-25T00:00:00Z&to=2020-11-28T00:00:00Z"
+        "https://api.covid19api.com/country/united-states/status/confirmed/live?from=2020-11-25T00:00:00Z&to=2020-11-29T00:00:00Z"
       )
         .then(response => response.json())
         .then(data => {
@@ -107,15 +107,15 @@ export default {
     // We need to set mapbox-gl library here in order to use it in template
     this.mapbox = Mapbox;
     this.getData();
+    // console.log(this.data);
   }
 };
 </script>
 
 <style>
 #map {
-  width: 90vw;
-  height: 100vh;
-  margin: 5%;
+  width: 50vw;
+  height: 60vh;
 }
 </style>
 <!--
