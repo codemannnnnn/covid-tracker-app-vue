@@ -1,5 +1,5 @@
 <template lang="html">
-  <section>
+  <section class="dash-section">
     <div class="dashboard-wrapper">
       <!-- <div class="dash-box-wrap-top" v-for="item in data" :key="item.key">
       <div id="dash-item-top">
@@ -67,7 +67,7 @@
         <h1>Current</h1>
         <div>
           <div id="dash-item-top">
-            {{ data[0].hospitalized }}<br />
+            {{ data[0].hospitalizedCurrently }}<br />
             <a id="dash-item-top-content">Hospitalized</a>
           </div>
           <div id="dash-item-top">
@@ -82,9 +82,7 @@
           </div>
         </div>
       </div>
-      <div>
-        <Covid />
-      </div>
+
       <div
         class="side-bar"
         style="border-top-right-radius: 20px;border-bottom-right-radius: 20px;"
@@ -125,11 +123,10 @@
 </template>
 
 <script>
-import Covid from "./Covid.vue";
 import BottomDashboard from "./BottomDashboard.vue";
+
 export default {
   components: {
-    Covid,
     BottomDashboard
   },
   data() {
@@ -159,13 +156,14 @@ export default {
   justify-content: center;
   margin: auto;
   padding: auto;
-  width: 100%;
+  width: 70%;
 }
+
 .side-bar {
   display: flex;
   flex-direction: column;
   background: #333;
-  width: 20%;
+  width: 60%;
   padding: 1%;
 }
 .side-bar h1 {

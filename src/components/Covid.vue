@@ -71,10 +71,18 @@ export default {
     };
   },
   methods: {
+    updateTime: () => {
+      const date = new Date();
+      const dd = date.getDate();
+      const mm = date.getMonth();
+      const yy = date.getFullYear();
+      const today = `${yy}-${mm + 1}-0${dd}`;
+      return today;
+      // return console.log(`${yy}-${mm}-${dd}`);
+    },
     getData: function() {
-      fetch(
-        "https://api.covid19api.com/country/united-states/status/confirmed/live?from=2020-11-25T00:00:00Z&to=2020-11-29T00:00:00Z"
-      )
+      const url = `https://cors-anywhere.herokuapp.com/https://api.covid19api.com/country/united-states/status/confirmed/live?from=2020-11-25T00:00:00Z&to=${this.updateTime()}T00:00:00Z`;
+      fetch(url)
         .then(response => response.json())
         .then(data => {
           data
@@ -106,7 +114,9 @@ export default {
   created() {
     // We need to set mapbox-gl library here in order to use it in template
     this.mapbox = Mapbox;
+    console.log(this.updateTime());
     this.getData();
+
     // console.log(this.data);
   }
 };
@@ -114,47 +124,7 @@ export default {
 
 <style>
 #map {
-  width: 50vw;
-  height: 60vh;
+  width: 90vw;
+  height: 50vh;
 }
 </style>
-<!--
-<script>
-import "https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js";
-
-const mapbox_token =
-  "pk.eyJ1IjoiY29kZW1hbm5ubm5uIiwiYSI6ImNraHh2NTNzMzF0ZWgycXJtZzF3NXJob2YifQ.UjFVHKidLtif2kyV7l21SA";
-
-mapboxgl.accessToken = mapbox_token;
-
-var map = new mapboxgl.Map({
-  container: "map",
-  style: "mapbox://styles/mapbox/streets-v11"
-});
-export default {
-  data() {
-    return {
-      data: null
-    };
-  },
-  methods: {
-    getData: function() {
-      fetch(
-        "https://api.covid19api.com/country/ireland/status/confirmed/live?from=2020-11-01T00:00:00Z&to=2020-11-27T00:00:00Z"
-      )
-        .then(response => response.json())
-        .then(data => console.log(data));
-    }
-  },
-  created: function() {
-    return this.getData();
-  }
-};
-</script>
-
-<style lang="css" scoped></style> -->
-
-<!-- https://api.covid19api.com/country/united-states/status/confirmed?from=2020-11-24T00:00:00Z&to=2020-11-25T00:00:00Z -->
-
-<!-- https://api.covid19api.com/country/ireland/status/confirmed/live?from=2020-11-01T00:00:00Z&to=2020-11-27T00:00:00Z -->
-<!-- API key pk.eyJ1IjoiY29kZW1hbm5ubm5uIiwiYSI6ImNraHh2NTNzMzF0ZWgycXJtZzF3NXJob2YifQ.UjFVHKidLtif2kyV7l21SA -->

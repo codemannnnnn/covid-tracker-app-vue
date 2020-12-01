@@ -4,13 +4,15 @@
     <div class="source-info" v-for="item in data" :key="item.key">
       <strong>{{ item.title }}</strong> -
       <a id="source-link" :href="item.website"
-        >Website <font-awesome-icon :icon="myIcon"
+        >Website <font-awesome-icon :icon="externalLink"
       /></a>
-      -
+      &nbsp;
       <a id="source-link" :href="item.api"
-        >API <font-awesome-icon :icon="myIcon"
+        >API <font-awesome-icon :icon="externalLink"
       /></a>
     </div>
+    <br />
+    <div></div>
   </div>
 </template>
 
@@ -25,7 +27,7 @@ export default {
   data() {
     return {
       data: footerData,
-      myIcon: faExternalLinkAlt
+      externalLink: faExternalLinkAlt
     };
   }
 };
