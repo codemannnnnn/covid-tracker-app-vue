@@ -78,7 +78,6 @@ export default {
       const yy = date.getFullYear();
       const today = `${yy}-${mm + 1}-0${dd}`;
       return today;
-      // return console.log(`${yy}-${mm}-${dd}`);
     },
     getData: function() {
       const url = `https://cors-anywhere.herokuapp.com/https://api.covid19api.com/country/united-states/status/confirmed/live?from=2020-11-25T00:00:00Z&to=${this.updateTime()}T00:00:00Z`;
