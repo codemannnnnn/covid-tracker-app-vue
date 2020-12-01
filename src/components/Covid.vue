@@ -80,7 +80,7 @@ export default {
       return today;
     },
     getData: function() {
-      const url = `https://cors-anywhere.herokuapp.com/https://api.covid19api.com/country/united-states/status/confirmed/live?from=2020-11-25T00:00:00Z&to=${this.updateTime()}T00:00:00Z`;
+      const url = `https://api.covid19api.com/country/united-states/status/confirmed/live?from=2020-11-25T00:00:00Z&to=${this.updateTime()}T00:00:00Z`;
       fetch(url)
         .then(response => response.json())
         .then(data => {
