@@ -1,10 +1,5 @@
 <template>
   <div>
-    <div></div>
-
-    <!-- {{ this.data }} -->
-    <!-- {{ data }} -->
-
     <div id="map">
       <MglMap
         :accessToken="accessToken"
@@ -12,14 +7,6 @@
         :zoom="zoom"
         :center="centerMt"
       >
-        <!-- <MglMarker
-          id="list"
-          v-for="mark in marks"
-          :key="mark.key"
-          :coordinates="mark.coors"
-          color="red"
-        /> -->
-
         <MglMarker
           id="list"
           v-for="item in data"
@@ -71,16 +58,42 @@ export default {
     };
   },
   methods: {
-    updateTime: () => {
+    updateYesterdaysTime: () => {
+      const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
       const date = new Date();
       const dd = date.getDate();
       const mm = date.getMonth();
       const yy = date.getFullYear();
-      const today = `${yy}-${mm + 1}-0${dd}`;
-      return today;
+      const yesterday = `${yy}-${mm + 1}-${dd - 1}`;
+
+      if (dd === arr.indexOf(dd + 1)) {
+        return `${yy}-${mm + 1}-0${dd - 1}`;
+      } else if (dd === 9) {
+        return `${yy}-${mm + 1}-0${dd - 1}`;
+      } else if (dd === 10) {
+        return `${yy}-${mm + 1}-0${dd - 1}`;
+      } else {
+        return yesterday;
+      }
+    },
+    updateTodaysTime: () => {
+      const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+      const date = new Date();
+      const dd = date.getDate();
+      const mm = date.getMonth();
+      const yy = date.getFullYear();
+      const today = `${yy}-${mm + 1}-${dd}`;
+
+      if (dd === arr.indexOf(dd + 1)) {
+        return `${yy}-${mm + 1}-0${dd}`;
+      } else if (dd === 9) {
+        return `${yy}-${mm + 1}-0${dd}`;
+      } else {
+        return today;
+      }
     },
     getData: function() {
-      const url = `https://api.covid19api.com/country/united-states/status/confirmed/live?from=2020-11-25T00:00:00Z&to=${this.updateTime()}T00:00:00Z`;
+      const url = `https://api.covid19api.com/country/united-states/status/confirmed/live?from=${this.updateYesterdaysTime()}T00:00:00Z&to=${this.updateTodaysTime()}T00:00:00Z`;
       fetch(url)
         .then(response => response.json())
         .then(data => {
@@ -91,11 +104,7 @@ export default {
             .map(item => {
               return [
                 {
-                  // cody: console.log(item)
-                  // City: item.City,
                   coors: [item.Lon, item.Lat]
-                  // Lon: item.Lon,
-                  // Lat: item.Lat
                 },
                 {
                   city: item.City,
@@ -111,12 +120,8 @@ export default {
   },
 
   created() {
-    // We need to set mapbox-gl library here in order to use it in template
     this.mapbox = Mapbox;
-    console.log(this.updateTime());
     this.getData();
-
-    // console.log(this.data);
   }
 };
 </script>
