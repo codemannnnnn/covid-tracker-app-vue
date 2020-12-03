@@ -101,6 +101,11 @@ export default {
             .filter(e => {
               return e.Province === "Montana";
             })
+            .filter(e => {
+              if (e.Lon != 0 && e.Lat != 0) {
+                return e.Lon && e.Lat;
+              }
+            })
             .map(item => {
               return [
                 {
