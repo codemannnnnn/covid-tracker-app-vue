@@ -34,6 +34,7 @@
 <script>
 import Mapbox from "mapbox-gl";
 import { MglMap, MglMarker, MglPopup } from "vue-mapbox";
+require("dotenv").config();
 
 //new save
 export default {
@@ -45,8 +46,7 @@ export default {
   data() {
     return {
       el: "#list",
-      accessToken:
-        "pk.eyJ1IjoiY29kZW1hbm5ubm5uIiwiYSI6ImNraHh2NTNzMzF0ZWgycXJtZzF3NXJob2YifQ.UjFVHKidLtif2kyV7l21SA", // your access token. Needed if you using Mapbox maps
+      accessToken: process.env.VUE_APP_API_KEY, // your access token. Needed if you using Mapbox maps
       mapStyle: "mapbox://styles/mapbox/dark-v10", // your map style,
       coordinates: [1, 1],
       marks: [{ coors: [-110.12, 46.09] }, { coors: [33, 1] }],
