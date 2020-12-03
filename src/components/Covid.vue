@@ -12,7 +12,7 @@
           v-for="item in data"
           :key="item.key"
           :coordinates="item[0].coors"
-          color="blue"
+          :color="getColor(item[1].cases)"
         >
           <MglPopup>
             <div>
@@ -116,6 +116,32 @@ export default {
             })
             .forEach(e => this.data.push(e));
         });
+    },
+    getColor: count => {
+      if (count >= 1000) {
+        return "red";
+      }
+      if (count >= 800) {
+        return "MIDNIGHTBLUE";
+      }
+      if (count >= 600) {
+        return "DODGERBLUE";
+      }
+      if (count >= 400) {
+        return "ROYALBLUE";
+      }
+      if (count >= 200) {
+        return "STEELBLUE";
+      }
+      if (count >= 100) {
+        return "LIGHTSKYBLUE";
+      }
+      if (count >= 10) {
+        return "SKYBLUE";
+      }
+      if (count >= 1) {
+        return "LIGHTBLUE";
+      }
     }
   },
 
