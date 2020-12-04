@@ -64,14 +64,14 @@ export default {
       const dd = date.getDate();
       const mm = date.getMonth();
       const yy = date.getFullYear();
-      const yesterday = `${yy}-${mm + 1}-${dd - 1}`;
+      const yesterday = `${yy}-${mm + 1}-${dd - 2}`;
 
       if (dd === arr.indexOf(dd + 1)) {
-        return `${yy}-${mm + 1}-0${dd - 1}`;
+        return `${yy}-${mm + 1}-0${dd - 2}`;
       } else if (dd === 9) {
-        return `${yy}-${mm + 1}-0${dd - 1}`;
+        return `${yy}-${mm + 1}-0${dd - 2}`;
       } else if (dd === 10) {
-        return `${yy}-${mm + 1}-0${dd - 1}`;
+        return `${yy}-${mm + 1}-0${dd - 2}`;
       } else {
         return yesterday;
       }
