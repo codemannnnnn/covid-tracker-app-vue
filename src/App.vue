@@ -1,8 +1,10 @@
 <template>
-  <div id="app">
-    <div class="header">
-      <h1 id="heading">Montana COVID-19 Data</h1>
+  <div class="app">
+    <div class="column is-2">
+      <h1 class="is-size-3 has-text-white title">Montana</h1>
+      <h1 class="is-size-3 has-text-white subtitle">COVID19</h1>
     </div>
+
     <Dashboard />
     <div class="map">
       <Covid />
@@ -32,13 +34,12 @@ export default {
   justify-content: center;
   padding: 4%;
 }
-#app {
+.app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 #heading {
   color: white;

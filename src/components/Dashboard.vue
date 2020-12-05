@@ -1,7 +1,7 @@
 <template lang="html">
-  <section class="dash-section">
-    <div class="dashboard-wrapper">
-      <!-- <div class="dash-box-wrap-top" v-for="item in data" :key="item.key">
+  <!-- <section class="dash-section">
+    <div class="dashboard-wrapper"> -->
+  <!-- <div class="dash-box-wrap-top" v-for="item in data" :key="item.key">
       <div id="dash-item-top">
         {{ item.positive }}
         <br />
@@ -53,14 +53,15 @@
 
         <a id="dash-item-top-content">Hospitalized</a>
       </div> -->
-      <!-- </div>
+  <!-- </div>
     <div id="dash-item-bottom">
       {{ data[0].lastUpdateEt }}<br />
 
       <a id="dash-item-bottom-content">Last Updated</a>
     </div> -->
 
-      <div
+  <!-- New Code Here -->
+  <!-- <div
         class="side-bar"
         style="border-top-left-radius: 20px;border-bottom-left-radius: 20px;"
       >
@@ -119,6 +120,37 @@
       </div>
     </div>
     <BottomDashboard :data="data" />
+  </section> -->
+  <section class="container">
+    <div class="columns" v-for="item in data" :key="item.key">
+      <div class="column is-6 has-background-primary">
+        <h1 class="is-size-1">Current</h1>
+        <p class="heading">Hospitalized</p>
+        <p class="title">{{ data[0].hospitalizedCurrently }}</p>
+        <p class="heading">ICU</p>
+        <p class="title">{{ data[0].inIcuCurrently }}</p>
+        <p class="heading">Ventilator</p>
+        <p class="title">{{ data[0].onVentilatorCurrently }}</p>
+      </div>
+      <div class="column is-6 has-background-danger">
+        <h1 class="is-size-1">Historical</h1>
+        <p class="heading">Positive</p>
+        <p class="title">{{ data[0].positive }}</p>
+        <p class="heading">Negative</p>
+        <p class="title">{{ data[0].negative }}</p>
+        <p class="heading">Total Test</p>
+        <p class="title">{{ data[0].totalTestResults }}</p>
+        <p class="heading">Hospitalized</p>
+        <p class="title">{{ data[0].hospitalizedCumulative }}</p>
+        <p class="heading">Recovered</p>
+        <p class="title">{{ data[0].recovered }}</p>
+        <p class="heading">Deaths</p>
+        <p class="title">{{ data[0].death }}</p>
+      </div>
+    </div>
+    <div>
+      <BottomDashboard :data="data" />
+    </div>
   </section>
 </template>
 
@@ -151,6 +183,9 @@ export default {
 </script>
 
 <style lang="css">
+.container {
+  padding: 5%;
+}
 .dashboard-wrapper {
   display: flex;
   justify-content: center;
