@@ -124,28 +124,28 @@ export default {
     },
     getColor: count => {
       if (count >= 1000) {
-        return "red";
+        return "#f14568";
       }
       if (count >= 800) {
-        return "MIDNIGHTBLUE";
+        return "#f14568";
       }
       if (count >= 600) {
-        return "DODGERBLUE";
+        return "#f14568";
       }
       if (count >= 400) {
-        return "ROYALBLUE";
+        return "#07d0b2";
       }
       if (count >= 200) {
-        return "STEELBLUE";
+        return "#07d0b2";
       }
       if (count >= 100) {
-        return "LIGHTSKYBLUE";
+        return "#07d0b2";
       }
       if (count >= 10) {
-        return "SKYBLUE";
+        return "#07d0b2";
       }
       if (count >= 1) {
-        return "LIGHTBLUE";
+        return "#07d0b2";
       }
     }
   },
