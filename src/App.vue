@@ -2,8 +2,10 @@
   <div class="app">
     <div class="custom-nav-col">
       <div class="column is-4 ">
-        <h1 class="is-size-3 has-text-white title">Montana</h1>
-        <h1 class="is-size-3 has-text-white subtitle">COVID19</h1>
+        <a href="https://montanacovid.com">
+          <h1 class="is-size-3 has-text-white title">Montana</h1>
+          <h1 class="is-size-3 has-text-white subtitle">COVID19</h1>
+        </a>
       </div>
 
       <div>
