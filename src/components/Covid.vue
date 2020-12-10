@@ -150,9 +150,9 @@ export default {
     }
   },
 
-  created() {
+  async created() {
     this.mapbox = Mapbox;
-    this.getData();
+    await this.getData();
   }
 };
 </script>
