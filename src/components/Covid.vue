@@ -72,6 +72,8 @@ export default {
         return `${yy}-${mm + 1}-0${dd - 2}`;
       } else if (dd === 10) {
         return `${yy}-${mm + 1}-0${dd - 2}`;
+      } else if (dd === 11) {
+        return `${yy}-${mm + 1}-0${dd - 2}`;
       } else {
         return yesterday;
       }
@@ -153,6 +155,8 @@ export default {
   async created() {
     this.mapbox = Mapbox;
     await this.getData();
+    console.log(this.updateTodaysTime());
+    console.log(this.updateYesterdaysTime());
   }
 };
 </script>

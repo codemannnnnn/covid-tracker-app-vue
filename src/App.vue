@@ -7,7 +7,6 @@
           <h1 class="is-size-3 has-text-white subtitle">COVID19</h1>
         </a>
       </div>
-
       <div>
         <Navbar />
       </div>
