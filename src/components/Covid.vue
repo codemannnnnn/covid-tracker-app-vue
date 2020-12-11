@@ -155,8 +155,6 @@ export default {
   async created() {
     this.mapbox = Mapbox;
     await this.getData();
-    console.log(this.updateTodaysTime());
-    console.log(this.updateYesterdaysTime());
   }
 };
 </script>
