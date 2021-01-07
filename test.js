@@ -29,5 +29,8 @@ const subtract2Days = () => {
   return previousDate;
 };
 
-console.log(subtract2Days());
-console.log(todaysDate());
+const newDate = "20201209";
+
+const formated = moment(newDate).format("YYYY-MM-DD");
+
+console.log(formated);

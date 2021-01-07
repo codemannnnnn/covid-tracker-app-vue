@@ -102,15 +102,16 @@ export default {
       return futureDate;
     },
 
-    subtract2Days: () => {
+    subtractDays: () => {
       const previousDate = moment()
-        .subtract(2, "days")
+        .subtract(10, "days")
         .format("YYYY-MM-DD");
       return previousDate;
     },
 
     getData: function() {
-      const url = `https://api.covid19api.com/country/united-states/status/confirmed/live?from=${this.subtract2Days()}T00:00:00Z&to=${this.todaysDate()}T00:00:00Z`;
+      const url = `https://api.covid19api.com/country/united-states/status/confirmed/live?from=${this.subtractDays()}T00:00:00Z&to=${this.todaysDate()}T00:00:00Z`;
+
       fetch(url)
         .then(response => response.json())
         .then(data => {
