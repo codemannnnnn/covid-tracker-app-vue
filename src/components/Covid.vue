@@ -104,14 +104,13 @@ export default {
 
     subtractDays: () => {
       const previousDate = moment()
-        .subtract(10, "days")
+        .subtract(6, "days")
         .format("YYYY-MM-DD");
       return previousDate;
     },
 
     getData: function() {
       const url = `https://api.covid19api.com/country/united-states/status/confirmed/live?from=${this.subtractDays()}T00:00:00Z&to=${this.todaysDate()}T00:00:00Z`;
-
       fetch(url)
         .then(response => response.json())
         .then(data => {
